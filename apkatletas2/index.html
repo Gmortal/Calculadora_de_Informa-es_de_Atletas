@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Perfil de Atleta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="container">
+        <div class="form-container">
+            <h2>Dados do Atleta</h2>
+            <form id="athlete-form">
+                <div class="input-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Cesar Abascal" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="idade">Idade</label>
+                        <input type="number" id="idade" name="idade" placeholder="Ex: 30" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" step="0.1" id="peso" name="peso" placeholder="Ex: 80.5" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="altura">Altura (m)</label>
+                    <input type="number" step="0.01" id="altura" name="altura" placeholder="Ex: 1.70" required>
+                </div>
+                <div class="input-group">
+                    <label for="notas">Notas (separadas por vírgula)</label>
+                    <input type="text" id="notas" name="notas" placeholder="Ex: 10, 9.34, 8.42, 10, 7.88" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Gerar Perfil</button>
+                    <button type="button" id="clear-btn" class="clear-btn">Limpar Campos</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="card-result-container" class="hidden">
+            <div class="athlete-card">
+                <header class="card-header">
+                    <img src="https://i.pravatar.cc/150" alt="Foto do Atleta" class="athlete-photo">
+                    <h1 id="atleta-nome"></h1>
+                    <p class="category" id="atleta-categoria"></p>
+                </header>
+                <section class="card-body">
+                    <div class="main-stats">
+                        <div class="stat">
+                            <p class="label">IMC</p>
+                            <p class="value" id="atleta-imc"></p>
+                            <!-- NOVO: Local para a classificação do IMC -->
+                            <p class="classification" id="atleta-imc-classificacao"></p>
+                        </div>
+                        <div class="stat">
+                            <p class="label">Média Válida</p>
+                            <p class="value" id="atleta-media"></p>
+                        </div>
+                    </div>
+                    <div class="details-stats">
+                        <p><i class="fas fa-calendar-alt"></i> Idade: <span id="atleta-idade"></span> anos</p>
+                        <p><i class="fas fa-weight-hanging"></i> Peso: <span id="atleta-peso"></span> kg</p>
+                        <p><i class="fas fa-ruler-vertical"></i> Altura: <span id="atleta-altura"></span> m</p>
+                    </div>
+                    <div class="notes-section">
+                        <h3>Notas Originais</h3>
+                        <div class="notes-container" id="atleta-notas"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
